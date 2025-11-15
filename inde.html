@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoyalStay.online | Luxury Stays, Accessible Prices</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* LUXURY DARK THEME PALETTE */
+        :root {
+            --primary-font: 'Lato', sans-serif;
+            --heading-font: 'Playfair Display', serif;
+            --gold-color: #D4AF37; /* Standard Gold */
+            --dark-color: #121212; /* Deep Dark Background */
+            --mid-dark: #1F1F1F; /* Card Background/Footer */
+            --light-text: #F0F0F0; /* Off-White Text */
+            --accent-color: #4A4A4A; /* Subtle Gray Accents */
+        }
+
+        body {
+            font-family: var(--primary-font);
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-color);
+            color: var(--light-text);
+            line-height: 1.7;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--dark-color);
+            border-bottom: 1px solid var(--accent-color);
+            padding: 20px 40px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            color: var(--gold-color);
+            margin: 0;
+            font-family: var(--heading-font);
+            font-size: 2.5em;
+            letter-spacing: 3px;
+        }
+        
+        .main-nav {
+            margin-top: 10px;
+        }
+        .main-nav a {
+            color: var(--light-text);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+        .main-nav a:hover {
+            color: var(--gold-color);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('./images/hero-maharashtra.jpg'); /* Use a dedicated hero image */
+            background-size: cover;
+            background-position: center;
+            height: 65vh; 
+            min-height: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--light-text);
+        }
+
+        .hero-content h2 {
+            font-family: var(--heading-font);
+            font-size: 4.2em; 
+            margin: 0 0 10px 0;
+            color: var(--gold-color);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5); 
+        }
+
+        .hero-content p {
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 0;
+        }
+
+        /* Main Content & Search */
+        main {
+            padding: 60px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .search-section {
+            display: flex;
+            justify-content: center;
+            margin: 0 auto 50px auto;
+            max-width: 700px;
+            background: var(--mid-dark);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--accent-color);
+        }
+
+        #city-search {
+            padding: 15px 20px;
+            width: 100%;
+            background-color: var(--dark-color);
+            color: var(--light-text);
+            border: 1px solid var(--accent-color);
+            border-radius: 4px;
+            font-size: 1.1em;
+            font-family: var(--primary-font);
+        }
+
+        #city-search:focus {
+            border-color: var(--gold-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+        }
+
+        .discover-heading {
+            text-align: center;
+            font-family: var(--heading-font);
+            font-size: 3.2em;
+            color: var(--gold-color);
+            margin-bottom: 50px;
+        }
+
+        .city-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        /* City Card Design (Uses Local Image Paths) */
+        .city-card {
+            background-color: var(--mid-dark);
+            height: 380px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            text-decoration: none;
+            color: var(--light-text);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--accent-color);
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .city-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: inherit; 
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.4s ease;
+            z-index: 0;
+            opacity: 0.9;
+        }
+        .city-card:hover::before {
+            transform: scale(1.05);
+            opacity: 0.7;
+        }
+
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 10%, rgba(0, 0, 0, 0) 70%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 25px;
+        }
+
+        .city-card h3 {
+            color: var(--gold-color);
+            font-family: var(--heading-font);
+            font-size: 2em;
+            margin: 0 0 5px 0;
+            text-shadow: 0 0 5px rgba(212, 175, 55, 0.2);
+        }
+
+        .explore-link {
+            color: var(--light-text);
+            font-weight: 700;
+            border-bottom: 2px solid var(--gold-color);
+            padding-bottom: 2px;
+            letter-spacing: 0.5px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s, letter-spacing 0.3s;
+        }
+
+        .city-card:hover .explore-link {
+            opacity: 1;
+            transform: translateY(0);
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--mid-dark);
+            border-top: 1px solid var(--accent-color);
+            color: #aaa;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+            font-size: 0.9em;
+        }
+        footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ROYALSTAY.ONLINE</h1>
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="disclosure.html">Disclosure</a>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h2>Luxury Stays, Accessible Prices.</h2>
+            <p>Your Royal Stay Starts Here. Discover Maharashtra's Elite Hotels, Crafted for Your Budget.</p>
+        </div>
+    </section>
+
+    <main>
+        <section class="search-section">
+            <input type="text" id="city-search" placeholder="Search for a city..." onkeyup="filterCities()">
+        </section>
+
+        <section class="city-grid-container">
+            <h2 class="discover-heading">Explore 38 Premier Destinations</h2>
+            
+            <div class="city-grid" id="city-grid">
+
+                <a href="city.html?name=Mumbai" class="city-card" data-city="Mumbai" style="background-image: url('./images/mumbai.jpg');">
+                    <div class="card-overlay"><h3>Mumbai</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Pune" class="city-card" data-city="Pune" style="background-image: url('./images/pune.jpg');">
+                    <div class="card-overlay"><h3>Pune</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Nagpur" class="city-card" data-city="Nagpur" style="background-image: url('./images/nagpur.jpg');">
+                    <div class="card-overlay"><h3>Nagpur</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Thane" class="city-card" data-city="Thane" style="background-image: url('./images/thane.jpg');">
+                    <div class="card-overlay"><h3>Thane</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Nashik" class="city-card" data-city="Nashik" style="background-image: url('./images/nashik.jpg');">
+                    <div class="card-overlay"><h3>Nashik</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Aurangabad" class="city-card" data-city="Aurangabad" style="background-image: url('./images/aurangabad.jpg');">
+                    <div class="card-overlay"><h3>Aurangabad</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Navi Mumbai" class="city-card" data-city="Navi Mumbai" style="background-image: url('./images/navimumbai.jpg');">
+                    <div class="card-overlay"><h3>Navi Mumbai</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Kolhapur" class="city-card" data-city="Kolhapur" style="background-image: url('./images/kolhapur.jpg');">
+                    <div class="card-overlay"><h3>Kolhapur</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Solapur" class="city-card" data-city="Solapur" style="background-image: url('./images/solapur.jpg');">
+                    <div class="card-overlay"><h3>Solapur</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Amravati" class="city-card" data-city="Amravati" style="background-image: url('./images/amravati.jpg');">
+                    <div class="card-overlay"><h3>Amravati</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Sangli" class="city-card" data-city="Sangli" style="background-image: url('./images/sangli.jpg');">
+                    <div class="card-overlay"><h3>Sangli</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Malegaon" class="city-card" data-city="Malegaon" style="background-image: url('./images/malegaon.jpg');">
+                    <div class="card-overlay"><h3>Malegaon</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Jalgaon" class="city-card" data-city="Jalgaon" style="background-image: url('./images/jalgaon.jpg');">
+                    <div class="card-overlay"><h3>Jalgaon</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Akola" class="city-card" data-city="Akola" style="background-image: url('./images/akola.jpg');">
+                    <div class="card-overlay"><h3>Akola</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Latur" class="city-card" data-city="Latur" style="background-image: url('./images/latur.jpg');">
+                    <div class="card-overlay"><h3>Latur</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Dhule" class="city-card" data-city="Dhule" style="background-image: url('./images/dhule.jpg');">
+                    <div class="card-overlay"><h3>Dhule</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Ahmednagar" class="city-card" data-city="Ahmednagar" style="background-image: url('./images/ahmednagar.jpg');">
+                    <div class="card-overlay"><h3>Ahmednagar</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Chandrapur" class="city-card" data-city="Chandrapur" style="background-image: url('./images/chandrapur.jpg');">
+                    <div class="card-overlay"><h3>Chandrapur</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Nanded" class="city-card" data-city="Nanded" style="background-image: url('./images/nanded.jpg');">
+                    <div class="card-overlay"><h3>Nanded</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Jalna" class="city-card" data-city="Jalna" style="background-image: url('./images/jalna.jpg');">
+                    <div class="card-overlay"><h3>Jalna</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                
+                <a href="city.html?name=Ratnagiri" class="city-card" data-city="Ratnagiri" style="background-image: url('./images/ratnagiri.jpg');">
+                    <div class="card-overlay"><h3>Ratnagiri</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Sindhudurg" class="city-card" data-city="Sindhudurg" style="background-image: url('./images/sindhudurg.jpg');">
+                    <div class="card-overlay"><h3>Sindhudurg</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Raigad" class="city-card" data-city="Raigad" style="background-image: url('./images/raigad.jpg');">
+                    <div class="card-overlay"><h3>Raigad</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Palghar" class="city-card" data-city="Palghar" style="background-image: url('./images/palghar.jpg');">
+                    <div class="card-overlay"><h3>Palghar</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Lonavala" class="city-card" data-city="Lonavala" style="background-image: url('./images/lonavala.jpg');">
+                    <div class="card-overlay"><h3>Lonavala</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Mahabaleshwar" class="city-card" data-city="Mahabaleshwar" style="background-image: url('./images/mahabaleshwar.jpg');">
+                    <div class="card-overlay"><h3>Mahabaleshwar</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Malshej Ghat" class="city-card" data-city="Malshej Ghat" style="background-image: url('./images/malshejghat.jpg');">
+                    <div class="card-overlay"><h3>Malshej Ghat</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Panchgani" class="city-card" data-city="Panchgani" style="background-image: url('./images/panchgani.jpg');">
+                    <div class="card-overlay"><h3>Panchgani</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                
+                <a href="city.html?name=Satara" class="city-card" data-city="Satara" style="background-image: url('./images/satara.jpg');">
+                    <div class="card-overlay"><h3>Satara</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Yavatmal" class="city-card" data-city="Yavatmal" style="background-image: url('./images/yavatmal.jpg');">
+                    <div class="card-overlay"><h3>Yavatmal</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Beed" class="city-card" data-city="Beed" style="background-image: url('./images/beed.jpg');">
+                    <div class="card-overlay"><h3>Beed</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Osmanabad" class="city-card" data-city="Osmanabad" style="background-image: url('./images/osmanabad.jpg');">
+                    <div class="card-overlay"><h3>Osmanabad</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Parbhani" class="city-card" data-city="Parbhani" style="background-image: url('./images/parbhani.jpg');">
+                    <div class="card-overlay"><h3>Parbhani</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Hingoli" class="city-card" data-city="Hingoli" style="background-image: url('./images/hingoli.jpg');">
+                    <div class="card-overlay"><h3>Hingoli</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Gondia" class="city-card" data-city="Gondia" style="background-image: url('./images/gondia.jpg');">
+                    <div class="card-overlay"><h3>Gondia</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Wardha" class="city-card" data-city="Wardha" style="background-image: url('./images/wardha.jpg');">
+                    <div class="card-overlay"><h3>Wardha</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Bhandara" class="city-card" data-city="Bhandara" style="background-image: url('./images/bhandara.jpg');">
+                    <div class="card-overlay"><h3>Bhandara</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                <a href="city.html?name=Buldhana" class="city-card" data-city="Buldhana" style="background-image: url('./images/buldhana.jpg');">
+                    <div class="card-overlay"><h3>Buldhana</h3><span class="explore-link">Explore Stays &rarr;</span></div>
+                </a>
+                
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Affiliate Disclosure: This site contains affiliate links. We may earn a commission from bookings made through our links, at no extra cost to you.</p>
+        <p>&copy; 2025 RoyalStay.online. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+    </footer>
+
+    <script>
+        function filterCities() {
+            const searchInput = document.getElementById('city-search').value.toLowerCase().trim();
+            const cityCards = document.querySelectorAll('.city-card');
+
+            cityCards.forEach(card => {
+                const city = card.getAttribute('data-city').toLowerCase();
+                
+                if (city.includes(searchInput) || searchInput === '') {
+                    card.style.display = ''; 
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
