@@ -7,8 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style> 
-        /* --- COPY THE ENTIRE CSS/STYLE BLOCK FROM INDEX.HTML HERE --- */
-        /* Only relevant styles shown below for brevity, but you must paste the full CSS */
+        /* --- COPY OF CSS FROM INDEX.HTML (for consistency) --- */
         :root {
             --primary-font: 'Lato', sans-serif;
             --heading-font: 'Playfair Display', serif;
@@ -26,25 +25,65 @@
             color: var(--light-text);
             line-height: 1.7;
         }
+        /* Header & Nav */
         header { background-color: var(--dark-color); border-bottom: 1px solid var(--accent-color); padding: 20px 40px; text-align: center; }
         header h1 { color: var(--gold-color); margin: 0; font-family: var(--heading-font); font-size: 2.5em; letter-spacing: 3px; }
         .main-nav a { color: var(--light-text); text-decoration: none; margin: 0 15px; font-weight: 400; transition: color 0.3s; }
         .main-nav a:hover { color: var(--gold-color); }
+
         main { padding: 40px 20px; max-width: 1400px; margin: 0 auto; }
         .discover-heading { text-align: center; font-family: var(--heading-font); font-size: 3.2em; color: var(--gold-color); margin-bottom: 30px; }
+
         .listing-header { text-align: center; margin-bottom: 30px; padding: 20px; background: var(--mid-dark); border-radius: 8px; border: 1px solid var(--accent-color); }
+        
+        /* Filter Button Styles */
         .filter-button { padding: 10px 20px; background: var(--accent-color); color: var(--light-text); border: none; border-radius: 4px; margin: 5px; cursor: pointer; transition: background-color 0.3s, color 0.3s; }
         .filter-button:hover { background-color: var(--gold-color); color: var(--dark-color); }
-        .hotel-listing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 40px; margin-top: 40px; }
-        .hotel-card { background-color: var(--mid-dark); border: 1px solid var(--accent-color); border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: transform 0.3s, box-shadow 0.3s; display: block; opacity: 1; }
+
+        .hotel-listing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .hotel-card {
+            background-color: var(--mid-dark);
+            border: 1px solid var(--accent-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: block; 
+            opacity: 1;
+        }
         .hotel-card.hidden { display: none; opacity: 0; }
         .hotel-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4); }
-        .hotel-img-placeholder { height: 250px; background-size: cover; background-position: center; background-color: #333; }
+        
+        /* NEW: IMG tag styling for reliable display */
+        .hotel-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover; /* Ensures image covers the area without distortion */
+        }
+
         .hotel-info { padding: 20px; }
         .hotel-info h3 { color: var(--gold-color); margin-top: 0; font-size: 1.8em; }
         .hotel-info p { margin: 5px 0; font-size: 0.95em; }
-        .book-link { display: block; text-align: center; padding: 15px; background-color: var(--gold-color); color: var(--dark-color); text-decoration: none; font-weight: 700; margin-top: 15px; border-radius: 4px; transition: background-color 0.3s; }
+        .book-link {
+            display: block;
+            text-align: center;
+            padding: 15px;
+            background-color: var(--gold-color);
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
         .book-link:hover { background-color: #ffc107; }
+
+        /* Footer */
         footer { background-color: var(--mid-dark); border-top: 1px solid var(--accent-color); color: #aaa; text-align: center; padding: 30px; margin-top: 60px; font-size: 0.9em; }
         footer p { margin: 5px 0; }
     </style> 
@@ -82,7 +121,7 @@
         <section class="hotel-listing-grid" id="hotelGrid">
             
             <div class="hotel-card" data-category="family" data-price="affordable">
-                <div class="hotel-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1549294413-26f195200cfa?fit=crop&w=800&q=80');"></div>
+                <img class="hotel-image" src="./images/placeholder-1.jpg" alt="Family Retreat Suites">
                 <div class="hotel-info">
                     <h3>The Family Retreat Suites</h3>
                     <p>🔒 **Safety Certified** | ⭐ Rating: 4.9</p>
@@ -92,7 +131,7 @@
             </div>
 
             <div class="hotel-card" data-category="couples" data-price="premium">
-                <div class="hotel-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1542314831-01f01633d132?fit=crop&w=800&q=80');"></div>
+                 <img class="hotel-image" src="./images/placeholder-2.jpg" alt="Skyline Romance Vista">
                 <div class="hotel-info">
                     <h3>Skyline Romance Vista</h3>
                     <p>🥂 **Private Rooftop Access** | ⭐ Rating: 5.0</p>
@@ -102,7 +141,7 @@
             </div>
             
              <div class="hotel-card" data-category="family" data-price="affordable">
-                <div class="hotel-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1507657922240-bc56e6d5e751?fit=crop&w=800&q=80');"></div>
+                 <img class="hotel-image" src="./images/placeholder-3.jpg" alt="Budget Royale Apartments">
                 <div class="hotel-info">
                     <h3>Budget Royale Apartments</h3>
                     <p>💰 **Best Value** | ⭐ Rating: 4.5</p>
@@ -112,7 +151,7 @@
             </div>
 
             <div class="hotel-card" data-category="family" data-price="premium">
-                <div class="hotel-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1546944066-834c76b9115b?fit=crop&w=800&q=80');"></div>
+                 <img class="hotel-image" src="./images/placeholder-4.jpg" alt="The Grand Waterpark Resort">
                 <div class="hotel-info">
                     <h3>The Grand Waterpark Resort</h3>
                     <p>👪 **All-Day Kid's Club** | ⭐ Rating: 4.7</p>
@@ -122,7 +161,7 @@
             </div>
             
             <div class="hotel-card" data-category="couples" data-price="affordable">
-                <div class="hotel-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1517840924970-cd222d4c062c?fit=crop&w=800&q=80');"></div>
+                 <img class="hotel-image" src="./images/placeholder-5.jpg" alt="The Cozy Boutique Stay">
                 <div class="hotel-info">
                     <h3>The Cozy Boutique Stay</h3>
                     <p>🤫 **Quiet & Secluded** | ⭐ Rating: 4.6</p>
@@ -132,7 +171,7 @@
             </div>
             
             <div class="hotel-card" data-category="family" data-price="affordable">
-                <div class="hotel-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1571008887538-b3651d2f0967?fit=crop&w=800&q=80');"></div>
+                 <img class="hotel-image" src="./images/placeholder-6.jpg" alt="Secure Stay Residency">
                 <div class="hotel-info">
                     <h3>Secure Stay Residency</h3>
                     <p>🚨 **24/7 Security** | ⭐ Rating: 4.5</p>
@@ -142,7 +181,7 @@
             </div>
             
              <div class="hotel-card" data-category="couples" data-price="premium">
-                <div class="hotel-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1517487881594-2787fdbb9be7?fit=crop&w=800&q=80');"></div>
+                 <img class="hotel-image" src="./images/placeholder-7.jpg" alt="The Grand Indulgence">
                 <div class="hotel-info">
                     <h3>The Grand Indulgence</h3>
                     <p>🍽️ **Gourmet Dining** | ⭐ Rating: 4.9</p>
@@ -152,7 +191,7 @@
             </div>
             
              <div class="hotel-card" data-category="family" data-price="premium">
-                <div class="hotel-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1505576399279-5289c5f606ee?fit=crop&w=800&q=80');"></div>
+                 <img class="hotel-image" src="./images/placeholder-8.jpg" alt="The All-Inclusive Family Hub">
                 <div class="hotel-info">
                     <h3>The All-Inclusive Family Hub</h3>
                     <p>💼 **Standard Family Option** | ⭐ Rating: 4.7</p>
@@ -162,7 +201,7 @@
             </div>
 
             <div class="hotel-card" data-category="couples" data-price="affordable">
-                <div class="hotel-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1520202970792-748439401830?fit=crop&w=800&q=80');"></div>
+                 <img class="hotel-image" src="./images/placeholder-9.jpg" alt="The Budget Date Spot">
                 <div class="hotel-info">
                     <h3>The Budget Date Spot</h3>
                     <p>✨ **Clean & Modern** | ⭐ Rating: 4.3</p>
@@ -172,7 +211,7 @@
             </div>
 
             <div class="hotel-card" data-category="family" data-price="affordable">
-                <div class="hotel-img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1542718712-421712a4d3f2?fit=crop&w=800&q=80');"></div>
+                 <img class="hotel-image" src="./images/placeholder-10.jpg" alt="Green Meadows Stay">
                 <div class="hotel-info">
                     <h3>Green Meadows Stay</h3>
                     <p>🌳 **Outdoor Play Area** | ⭐ Rating: 4.6</p>
@@ -214,7 +253,6 @@
                 });
             } 
             else if (filterType === 'family-affordable') {
-                // Front-end Demo Logic: Sirf un cards ko dikhao jinmein 'family' aur 'affordable' tags hain
                 const filteredCards = document.querySelectorAll('[data-category="family"][data-price="affordable"]');
                 
                 filteredCards.forEach(card => {
