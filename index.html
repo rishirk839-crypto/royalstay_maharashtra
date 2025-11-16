@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RoyalStay.online | Luxury Stays, Accessible Prices</title>
+    <title>Maharashtra's RoyalStay: Luxury Hotels for Affordable Price | RoyalStay.online</title>
+    
+    <meta name="description" content="Discover handpicked luxury hotels in 38 Maharashtra cities at accessible prices. Find family-friendly suites and romantic getaways. Your Royal Stay starts here.">
+    
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style>
@@ -11,11 +14,11 @@
         :root {
             --primary-font: 'Lato', sans-serif;
             --heading-font: 'Playfair Display', serif;
-            --gold-color: #D4AF37; /* Standard Gold */
-            --dark-color: #121212; /* Deep Dark Background */
-            --mid-dark: #1F1F1F; /* Card Background/Footer */
-            --light-text: #F0F0F0; /* Off-White Text */
-            --accent-color: #4A4A4A; /* Subtle Gray Accents */
+            --gold-color: #D4AF37; 
+            --dark-color: #121212; 
+            --mid-dark: #1F1F1F; 
+            --light-text: #F0F0F0; 
+            --accent-color: #4A4A4A; 
         }
 
         body {
@@ -27,7 +30,7 @@
             line-height: 1.7;
         }
 
-        /* Header & Navigation */
+        /* --- Header & Navigation Styles --- */
         header {
             background-color: var(--dark-color);
             border-bottom: 1px solid var(--accent-color);
@@ -42,8 +45,8 @@
             color: var(--gold-color);
             margin: 0;
             font-family: var(--heading-font);
-            font-size: 2.5em;
-            letter-spacing: 3px;
+            font-size: 2.5em; 
+            letter-spacing: 5px; /* Added spacing for ROYALSTAY */
         }
         
         .main-nav {
@@ -60,41 +63,54 @@
             color: var(--gold-color);
         }
 
-        /* Hero Section */
+        /* --- Hero Section Styles (with Image) --- */
         .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('./images/hero-maharashtra.jpg'); /* Use a dedicated hero image */
-            background-size: cover;
-            background-position: center;
-            height: 65vh; 
-            min-height: 450px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            /* NEW: Background image and overlay */
+            background: url('./images/hero-mumbai.jpg') no-repeat center center/cover;
             color: var(--light-text);
+            text-align: center;
+            padding: 150px 20px; 
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
         }
 
+        /* Dark overlay for better text readability */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* 40% opaque black */
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2; 
+            max-width: 800px;
+            padding: 0 20px;
+        }
         .hero-content h2 {
             font-family: var(--heading-font);
-            font-size: 4.2em; 
-            margin: 0 0 10px 0;
+            font-size: 3.8em; 
             color: var(--gold-color);
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5); 
+            margin-bottom: 15px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7); 
         }
-
         .hero-content p {
-            font-size: 1.5em;
-            font-weight: 300;
-            margin-bottom: 0;
+            font-size: 1.3em; 
+            color: #E0E0E0; 
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
         }
 
-        /* Main Content & Search */
-        main {
-            padding: 60px 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
+        /* --- Search Section --- */
         .search-section {
             display: flex;
             justify-content: center;
@@ -105,6 +121,7 @@
             border-radius: 8px;
             box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
             border: 1px solid var(--accent-color);
+            z-index: 3; /* Ensure search bar is prominent */
         }
 
         #city-search {
@@ -124,24 +141,24 @@
             box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
         }
 
+        /* --- City Grid Section --- */
+        main { padding: 40px 20px; max-width: 1400px; margin: 0 auto; }
         .discover-heading {
             text-align: center;
             font-family: var(--heading-font);
             font-size: 3.2em;
             color: var(--gold-color);
-            margin-bottom: 50px;
+            margin-bottom: 30px;
+            margin-top: 60px;
         }
-
         .city-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
-
-        /* City Card Design (Uses Local Image Paths) */
         .city-card {
             background-color: var(--mid-dark);
-            height: 380px;
+            height: 250px; /* Fixed height for consistent cards */
             border-radius: 8px;
             overflow: hidden;
             position: relative;
@@ -178,44 +195,29 @@
             opacity: 0.7;
         }
 
-
         .card-overlay {
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 10%, rgba(0, 0, 0, 0) 70%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 25px;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+            color: var(--light-text);
+            padding: 20px;
+            text-align: center;
         }
 
-        .city-card h3 {
-            color: var(--gold-color);
-            font-family: var(--heading-font);
-            font-size: 2em;
+        .card-overlay h3 {
             margin: 0 0 5px 0;
-            text-shadow: 0 0 5px rgba(212, 175, 55, 0.2);
+            font-family: var(--heading-font);
+            font-size: 1.8em;
+            color: var(--gold-color);
         }
 
         .explore-link {
-            color: var(--light-text);
-            font-weight: 700;
-            border-bottom: 2px solid var(--gold-color);
-            padding-bottom: 2px;
-            letter-spacing: 0.5px;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.3s, transform 0.3s, letter-spacing 0.3s;
-        }
-
-        .city-card:hover .explore-link {
-            opacity: 1;
-            transform: translateY(0);
-            letter-spacing: 1px;
+            font-size: 0.9em;
+            color: #bbb;
+            display: block;
+            margin-top: 5px;
         }
 
         /* Footer */
@@ -236,7 +238,7 @@
 <body>
 
     <header>
-        <h1>ROYALSTAY.ONLINE</h1>
+        <h1>ROYALSTAY</h1> 
         <nav class="main-nav">
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
@@ -378,7 +380,6 @@
                 <a href="city.html?name=Buldhana" class="city-card" data-city="Buldhana" style="background-image: url('./images/buldhana.jpg');">
                     <div class="card-overlay"><h3>Buldhana</h3><span class="explore-link">Explore Stays &rarr;</span></div>
                 </a>
-                
             </div>
         </section>
     </main>
