@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | RoyalStay.online</title>
+    
+    <meta name="description" content="Contact RoyalStay Support for booking inquiries, partnerships, or assistance with luxury hotels in Maharashtra.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* LUXURY DARK THEME PALETTE (Copied for file self-containment) */
+        :root {
+            --primary-font: 'Lato', sans-serif;
+            --heading-font: 'Playfair Display', serif;
+            --gold-color: #D4AF37; 
+            --dark-color: #121212; 
+            --mid-dark: #1F1F1F; 
+            --light-text: #F0F0F0; 
+            --accent-color: #4A4A4A; 
+        }
+
+        body {
+            font-family: var(--primary-font);
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-color);
+            color: var(--light-text);
+            line-height: 1.7;
+        }
+
+        /* Header & Navigation */
+        header { background-color: var(--dark-color); border-bottom: 1px solid var(--accent-color); padding: 20px 40px; text-align: center; }
+        header h1 { color: var(--gold-color); margin: 0; font-family: var(--heading-font); font-size: 2.5em; letter-spacing: 5px; }
+        .main-nav { margin-top: 10px; }
+        .main-nav a { color: var(--light-text); text-decoration: none; margin: 0 15px; font-weight: 400; transition: color 0.3s; }
+        .main-nav a:hover { color: var(--gold-color); }
+
+        /* Main Content Layout */
+        main { 
+            padding: 40px 20px; 
+            max-width: 800px; 
+            margin: 0 auto; 
+        }
+        .discover-heading { 
+            text-align: left; 
+            font-family: var(--heading-font); 
+            font-size: 3.2em; 
+            color: var(--gold-color); 
+            margin-bottom: 30px; 
+        }
+        .content-box { 
+            background-color: var(--mid-dark); 
+            padding: 40px; 
+            border-radius: 8px; 
+            border: 1px solid var(--accent-color); 
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+        }
+        .content-box h3 { 
+            color: var(--gold-color); 
+            font-family: var(--heading-font); 
+            margin-top: 30px; 
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 5px;
+        }
+        .content-box p {
+            font-size: 1.05em;
+            color: #ccc;
+        }
+
+        /* Form Styling (Basic) */
+        input[type="text"], input[type="email"], textarea {
+            width: 100%; 
+            padding: 12px; 
+            margin-bottom: 15px; 
+            background: var(--dark-color); 
+            border: 1px solid var(--accent-color); 
+            color: var(--light-text);
+            border-radius: 4px;
+            box-sizing: border-box; /* Ensures padding is included in the width */
+        }
+        button[type="submit"] {
+            padding: 12px 25px; 
+            background-color: var(--gold-color); 
+            color: var(--dark-color); 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            font-weight: 700;
+            transition: background-color 0.3s;
+        }
+        button[type="submit"]:hover {
+            background-color: #ffc107;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--mid-dark);
+            border-top: 1px solid var(--accent-color);
+            color: #aaa;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+            font-size: 0.9em;
+        }
+        footer p { margin: 5px 0; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ROYALSTAY</h1>
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="disclosure.html">Disclosure</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="discover-heading">Get In Touch</h2>
+        <div class="content-box">
+            
+            <p style="font-size: 1.1em; color: var(--light-text);">
+                We are dedicated to assisting you with your luxury stay inquiries, partnership opportunities, or technical support needs.
+            </p>
+
+            <h3 style="margin-top: 0;">General Inquiries & Support</h3>
+            <p>
+                <strong>Email:</strong> <a href="mailto:support@royalstay.online" style="color: var(--gold-color); text-decoration: none;">support@royalstay.online</a>
+                <br>
+                *(Your secure, professional email)*
+            </p>
+
+            <h3>Partnerships & Media</h3>
+            <p>
+                For hotel listings, affiliate partnership queries, or media requests, please use the form below.
+            </p>
+
+            <h3 style="margin-top: 40px;">Send a Message</h3>
+            <p style="color: #aaa; font-size: 0.9em;">(Note: Live Form functionality requires a backend connection to process submissions.)</p>
+            <form action="#" method="POST"> 
+                <input type="text" name="name" placeholder="Your Full Name" required>
+                <input type="email" name="email" placeholder="Your Email (support@royalstay.online will reply here)" required>
+                <textarea name="message" placeholder="Your Inquiry or Booking Question" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>Affiliate Disclosure: This site contains affiliate links. We may earn a commission from bookings made through our links, at no extra cost to you.</p>
+        <p>&copy; 2025 RoyalStay.online. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+    </footer>
+    
+    <script></script>
+</body>
+</html>
