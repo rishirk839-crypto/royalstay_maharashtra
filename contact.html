@@ -64,12 +64,8 @@
             border-bottom: 1px solid var(--accent-color);
             padding-bottom: 5px;
         }
-        .content-box p {
-            font-size: 1.05em;
-            color: #ccc;
-        }
-
-        /* Form Styling (Basic) */
+        
+        /* Form Styling */
         input[type="text"], input[type="email"], textarea {
             width: 100%; 
             padding: 12px; 
@@ -78,7 +74,7 @@
             border: 1px solid var(--accent-color); 
             color: var(--light-text);
             border-radius: 4px;
-            box-sizing: border-box; /* Ensures padding is included in the width */
+            box-sizing: border-box; 
         }
         button[type="submit"] {
             padding: 12px 25px; 
@@ -140,10 +136,11 @@
             </p>
 
             <h3 style="margin-top: 40px;">Send a Message</h3>
-            <p style="color: #aaa; font-size: 0.9em;">(Note: Live Form functionality requires a backend connection to process submissions.)</p>
-            <form action="#" method="POST"> 
+            <p style="color: #aaa; font-size: 0.9em;">(Your message will be securely sent to support@royalstay.online)</p>
+            
+            <form action="https://formspree.io/f/mankqqez" method="POST"> 
                 <input type="text" name="name" placeholder="Your Full Name" required>
-                <input type="email" name="email" placeholder="Your Email (support@royalstay.online will reply here)" required>
+                <input type="email" name="_replyto" placeholder="Your Email" required> 
                 <textarea name="message" placeholder="Your Inquiry or Booking Question" rows="5" required></textarea>
                 <button type="submit">Send Message</button>
             </form>
